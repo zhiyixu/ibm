@@ -1,0 +1,91 @@
+如何发现数据中的异常值
+histogram, density plot, box plot
+
+interquatile range, stadard deviation 
+
+q25, q50, q75 = np.percnetile(data, [25,50,75])
+iqr = q75 - q25
+min = q25 - 1.5*iqr
+max = q55 + 1.5*iqr
+
+any data outside the (min, max) is a outlier
+
+residuals: standardizde, deleted, studentized 
+
+
+policise for outliers
+
+remove them
+assign the mean or median value
+transform the variable
+predict the value by 1. similar observations 2. regression method 
+keep them 
+
+--------------EDA-----------
+
+techniques:
+
+statistics: average, median, min, max, correlations
+
+visualizations: histograms, scatter plots, box plots
+
+
+
+
+plt.plot(x,y,ls='',marker='o') # ls stands for line style, set to "" means no line just the marker.
+plt.plot(x,y,ls='',marker='o') # ls stands for line style, set to "" means no line just the marker.
+plt.plot(x,y,ls='',marker='o') # ls stands for line style, set to "" means no line just the marker.
+
+if we call plt.plot many times without call plt.show then all the figure will crate in the same figure.
+
+
+plt.hist(data, bins=20) # n data of each box 
+
+
+fig, ax = plt.subplots()
+
+ax.set_xlabel("a") # this only changes the xlabel  
+ax.set(xlabel="a", ylabel="y",...) # change x and y at the same time  
+
+make a plot after groupby and aggfunc
+
+data.groupby(by=["frature"]).mean().plot(color=[]) 
+# and pandas will handel the x and y auto? the group is deminsion thus it will be x-axis
+
+
+
+sns.pairplot 
+
+sns.joinplot(x,y, kind="hex")  # show the distribution
+
+sns.FacetGrid  # 这是啥？？
+
+
+
+
+
+Which residual-based approach to identifying outliers compares running a model with all data to running the same model, but dropping a single observation? 
+Standardized residuals
+Unstandardized residuals
+Externally-studentized residuals
+Abnormally-studentized residuals 
+
+
+-------------- transform data ---------------
+ 
+prediction from linear regression model assume residuals are normally distributed.
+but feature and predicted data ofen skewed, thus we introduced data transformation 
+
+
+
+
+------------ parametric vs non-parametric 
+parametric model is a particular type of statistical model with finite number of parameters.
+e.g. normal distribution it depend on the mean and var 
+
+non-parametric statistics we don't assume that the data belong to any particular distribution.
+
+common way of estimating parameters is a parametric model is maximum likehood estimation (MLE)
+
+commonly use distribution:
+1. uniform distribution 
